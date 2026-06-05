@@ -18,8 +18,8 @@ typedef enum : unsigned char {
 } boolean;
 
 typedef struct {
+    void* ptr;
     unsigned long size;
-    void* ptr
 } memoryAddress;
 
 typedef struct {
@@ -261,8 +261,8 @@ void suicide(void) {
         char* ptr = 0;
         cursor = 0;
         for (unsigned char i = 0; i < 255; i++) { printString(KERNELPANIC); }
-        while (1) { for (unsigned long i = 0; i < 0x100000; i++) { *(ptr + i) = 0; } }
-        while (1) { halt(); }
+        for (unsigned long i = 0; i < 0x100000; i++) { *(ptr + i) = 0; }
+        halt();
     }
 }
 
