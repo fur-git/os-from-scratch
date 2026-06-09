@@ -5,6 +5,10 @@
 
 _start:
 	cli
+	inb $0x92, %al
+	orb $2, %al
+	andb $0xFE, %al
+	outb %al, $0x92
 	xorw %ax, %ax
 	movw %ax, %ds
 	lgdtl gdt_descriptor
