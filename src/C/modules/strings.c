@@ -21,9 +21,7 @@ volatile const char* HELPTEXT =
 "  READ <0-9>         - read virtual file\n"
 "  ERASE <0-9>        - erase virtual file\n"
 "  HALT               - stop the CPU\n"
-"  SUICIDE            - trigger kernel panic\n"
-"\n"
-"Controls: ! to run, ~ to backspace\n";
+"  SUICIDE            - trigger kernel panic\n";
 
 // commands without arguments
 

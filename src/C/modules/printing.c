@@ -14,6 +14,6 @@ void printChar(char* character) {
 }
 
 void printString(char* string) {
-    unsigned char stringLen = getStrLen(string);
-    for (unsigned char i = 0; i < stringLen; i++) { printChar(string + i); }
+    unsigned long stringLen = getStrLen(string);
+    for (unsigned long i = 0; i < stringLen; i++) { printChar(string + i); }
 }
