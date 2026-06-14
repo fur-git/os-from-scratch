@@ -37,9 +37,15 @@ void mainC(void) {
                 }
             }
             else if (parsed == '!') {
+                symbols[actualCharacters] = 0;
                 if (isEqualEcho(symbols)) {
                     for (unsigned short j = 0; j < (actualCharacters - 5); j++) { printChar(&symbols[j+5]); }
                     printChar(NEWLINE);
+                    for (unsigned char j = 0; j < 65; j++) { symbols[j] = 0; }
+                    actualCharacters = 0;
+                }
+                else if (isEqual(symbols, HELPCMD)) {
+                    printString(HELPTEXT);
                     for (unsigned char j = 0; j < 65; j++) { symbols[j] = 0; }
                     actualCharacters = 0;
                 }
@@ -49,9 +55,11 @@ void mainC(void) {
                     actualCharacters = 0;
                 }
                 else if (isEqual(symbols, FUNNYCMD)) { clear(); while (1) { printString(FUNNYEASTEREGG); } }
-                else if (isEqualWrite(symbols) && actualCharacters >= 7) {
+                else if (isEqualWrite(symbols) && actualCharacters >= 8) {
                     char fileDescriptor = getFileDescriptorFromInput(symbols[6]);
-                    if (fileDescriptor != -1 && symbols[7] == ' ') { 
+                    if (fileDescriptor != -1 && symbols[7] == ' ') {
+                        char zero = 0;
+                        setMemory(&zero, files[fileDescriptor], 1024, CHARACTER);
                         for (unsigned char j = 0; j < (actualCharacters - 8); j++) { files[fileDescriptor][j] = symbols[j+8]; }
                     }
                     else { printString(INVALID); }

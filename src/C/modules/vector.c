@@ -129,6 +129,6 @@ void* getVectorElement(vector* arg, unsigned short argElement) {
         case LONG: offset = LONGBYTES; break;
         case LONGLONG: offset = LONGLONGBYTES; break;
     }
-    void* ptr = (char*)((*arg).ptr + (targetVectorElement * offset));
+    void* ptr = ((char*)(*arg).ptr) + (targetVectorElement * offset);
     return ptr;
 }

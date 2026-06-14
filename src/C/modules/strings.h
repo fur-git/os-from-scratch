@@ -13,9 +13,11 @@ extern volatile const char* INVALID;
 
 extern volatile const char* FUNNYEASTEREGG;
 extern volatile const char* KERNELPANIC;
+extern volatile const char* HELPTEXT;
 
 // commands without arguments
 
+extern volatile const char* HELPCMD;
 extern volatile const char* CLEARCMD;
 extern volatile const char* FUNNYCMD;
 extern volatile const char* SUICIDECMD;
