@@ -4,7 +4,7 @@
 
 volatile const char* PLACEHOLDER = "PLACEHOLDER (Something unexpected happened)\n";
 volatile const char* DEFAULT = "Hello, World!\n";
-volatile const char* INPUT = "Input: ";
+volatile const char* INPUT = "> ";
 volatile const char* NEWLINE = "\n";
 volatile const char* INVALID = "Invalid command\n";
 

@@ -10,6 +10,7 @@
 void mainC(void) {
     clear();
     printString(DEFAULT);
+    printString(INPUT);
     char symbols[65] = {0};
     char files[10][1024];
     char buffer[255];
@@ -23,21 +24,18 @@ void mainC(void) {
             if (parsed != '~' && parsed != '!' && parsed != '?' && actualCharacters != 64) {
                 symbols[actualCharacters] = parsed;
                 actualCharacters++;
-                printString(INPUT);
-                for (unsigned short j = 0; j < actualCharacters; j++) { printChar(&symbols[j]); }
-                printChar(NEWLINE);
+                printChar(&parsed);
             }
             else if (parsed == '~') {
                 if (actualCharacters != 0) {
                     symbols[actualCharacters] = 0;
                     actualCharacters--;
-                    printString(INPUT);
-                    for (unsigned short j = 0; j < actualCharacters; j++) { printChar(&symbols[j]); }
-                    printChar(NEWLINE);
+                    backspace();
                 }
             }
             else if (parsed == '!') {
                 symbols[actualCharacters] = 0;
+                printChar(NEWLINE);
                 if (isEqualEcho(symbols)) {
                     for (unsigned short j = 0; j < (actualCharacters - 5); j++) { printChar(&symbols[j+5]); }
                     printChar(NEWLINE);
@@ -88,6 +86,7 @@ void mainC(void) {
                     for (unsigned char j = 0; j < 65; j++) { symbols[j] = 0; }
                     actualCharacters = 0;
                 }
+                printString(INPUT);
             }
             else if (parsed == '?') {}
             else { printString(PLACEHOLDER); }
