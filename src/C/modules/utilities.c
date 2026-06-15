@@ -20,15 +20,16 @@ void reverseArray(char* strArg, unsigned long length) {
 }
 
 void itoa(unsigned long intArg, char* buffer) {
-    if (intArg == 0) { buffer[0] = '0'; return; }
+    if (intArg == 0) { buffer[0] = '0'; buffer[1] = 0; return; }
     unsigned char counter = 0;
     for (unsigned long j = 0; j < 255; j++) {
-        if (intArg / 10 == 0 && intArg % 10 == 0 && intArg == 0) { break; }
+        if (intArg == 0) { break; }
         buffer[j] = intArg % 10 + 48;
         intArg /= 10;
         counter++;
     }
     reverseArray(buffer, counter);
+    buffer[counter] = 0;
 }
 
 char toAscii(unsigned char code) {

@@ -54,6 +54,11 @@ void mainC(void) {
                     for (unsigned char j = 0; j < 65; j++) { symbols[j] = 0; }
                     actualCharacters = 0;
                 }
+                else if (isEqual(symbols, LISTFSCMD)) {
+                    runListFs(files);
+                    for (unsigned char j = 0; j < 65; j++) { symbols[j] = 0; }
+                    actualCharacters = 0;
+                }
                 else if (isEqual(symbols, FUNNYCMD)) { clear(); while (1) { printString(FUNNYEASTEREGG); } }
                 else if (isEqualWrite(symbols) && actualCharacters >= 8) {
                     char fileDescriptor = getFileDescriptorFromInput(symbols[6]);

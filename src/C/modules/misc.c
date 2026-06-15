@@ -50,6 +50,20 @@ bool isEqualExpress(char* originMsg) {
     return isValid;
 }
 
+void runListFs(char files[10][1024]) {
+    char numBuffer[255] = {0};
+    for (unsigned char i = 0; i < 10; i++) {
+        printString("FILE ");
+        char digit = '0' + i;
+        printChar(&digit);
+        printString(": ");
+        itoa(getStrLen(files[i]), numBuffer);
+        printString(numBuffer);
+        printString(" BYTES");
+        printChar(NEWLINE);
+    }
+}
+
 void runExpress(char* originMsg, unsigned char length) {
     unsigned char i = 8;
     if (length <= i) { printString(INVALID); return; }
