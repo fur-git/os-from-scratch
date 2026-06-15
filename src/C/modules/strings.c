@@ -20,6 +20,7 @@ volatile const char* HELPTEXT =
 "  WRITE <0-9> <text> - write to virtual file\n"
 "  READ <0-9>         - read virtual file\n"
 "  ERASE <0-9>        - erase virtual file\n"
+"  LISTFS             - list virtual files and RAM usage\n"
 "  EXPRESS <expr>     - add/sub/mul/div two numbers\n"
 "  HALT               - stop the CPU\n"
 "  SUICIDE            - trigger kernel panic\n"
@@ -37,6 +38,7 @@ volatile const char* CLEARCMD = "CLEAR";
 volatile const char* FUNNYCMD = "FUNNY MOMENT";
 volatile const char* SUICIDECMD = "SUICIDE";
 volatile const char* HALTCMD = "HALT";
+volatile const char* LISTFSCMD = "LISTFS";
 
 // commands with arguments
 

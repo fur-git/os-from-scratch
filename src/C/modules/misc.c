@@ -88,3 +88,17 @@ void runExpress(char* originMsg, unsigned char length) {
     printString(resultBuffer);
     printChar(NEWLINE);
 }
+
+void runListFs(char files[10][1024]) {
+    char numBuffer[16] = {0};
+    for (unsigned char i = 0; i < 10; i++) {
+        printString("FILE ");
+        itoa(i, numBuffer);
+        printString(numBuffer);
+        printString(": ");
+        itoa(getStrLen(files[i]), numBuffer);
+        printString(numBuffer);
+        printString(" BYTES");
+        printChar(NEWLINE);
+    }
+}

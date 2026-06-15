@@ -22,6 +22,7 @@ extern volatile const char* CLEARCMD;
 extern volatile const char* FUNNYCMD;
 extern volatile const char* SUICIDECMD;
 extern volatile const char* HALTCMD;
+extern volatile const char* LISTFSCMD;
 
 // commands with arguments
 

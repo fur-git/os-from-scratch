@@ -86,6 +86,11 @@ void mainC(void) {
                     for (unsigned char j = 0; j < 65; j++) { symbols[j] = 0; }
                     actualCharacters = 0;
                 }
+                else if (isEqual(symbols, LISTFSCMD)) {
+                    runListFs(files);
+                    for (unsigned char j = 0; j < 65; j++) { symbols[j] = 0; }
+                    actualCharacters = 0;
+                }
                 else if (isEqual(symbols, SUICIDECMD)) { suicide(); }
                 else if (isEqual(symbols, HALTCMD)) { halt(); }
                 else {
