@@ -2,6 +2,7 @@
 #define PRINTING
 
 void clear(void);
+void initCursor(void);
 void printChar(char* character);
 void printString(char* string);
 void backspace(void);

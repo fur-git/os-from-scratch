@@ -9,6 +9,7 @@
 
 void mainC(void) {
     clear();
+    initCursor();
     printString(DEFAULT);
     printString(INPUT);
     char symbols[65] = {0};
