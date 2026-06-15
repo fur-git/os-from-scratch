@@ -21,6 +21,7 @@ void mainC(void) {
         if ((inb(0x64) & 1) != 0) {
             char input = inb(0x60);
             char parsed = toAscii(input);
+            if (parsed == 0) { continue; }
             if (parsed != '~' && parsed != '!' && parsed != '?' && actualCharacters != 64) {
                 symbols[actualCharacters] = parsed;
                 actualCharacters++;
@@ -76,6 +77,11 @@ void mainC(void) {
                     char fileDescriptor = getFileDescriptorFromInput(symbols[6]);
                     if (fileDescriptor != -1) { for (unsigned short j = 0; j < 1024; j++) { files[fileDescriptor][j] = 0; } }
                     else { printString(INVALID); }
+                    for (unsigned char j = 0; j < 65; j++) { symbols[j] = 0; }
+                    actualCharacters = 0;
+                }
+                else if (isEqualExpress(symbols) && actualCharacters >= 11) {
+                    runExpress(symbols, actualCharacters);
                     for (unsigned char j = 0; j < 65; j++) { symbols[j] = 0; }
                     actualCharacters = 0;
                 }

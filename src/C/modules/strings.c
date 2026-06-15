@@ -20,8 +20,15 @@ volatile const char* HELPTEXT =
 "  WRITE <0-9> <text> - write to virtual file\n"
 "  READ <0-9>         - read virtual file\n"
 "  ERASE <0-9>        - erase virtual file\n"
+"  EXPRESS <expr>     - add/sub/mul/div two numbers\n"
 "  HALT               - stop the CPU\n"
-"  SUICIDE            - trigger kernel panic\n";
+"  SUICIDE            - trigger kernel panic\n"
+"\n"
+"Controls:\n"
+"  ENTER              - run command\n"
+"  BACKSPACE          - delete last character\n"
+"  SPACE              - type a space\n"
+"  CTRL               - use instead of SHIFT for alternate characters\n";
 
 // commands without arguments
 
@@ -37,3 +44,4 @@ volatile const char* ECHOCMD = "ECHO ";
 volatile const char* WRITECMD = "WRITE ";
 volatile const char* READCMD = "READ ";
 volatile const char* ERASECMD = "ERASE ";
+volatile const char* EXPRESSCMD = "EXPRESS ";

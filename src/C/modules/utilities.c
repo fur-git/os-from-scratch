@@ -1,4 +1,5 @@
 #include "utilities.h"
+#include "globals.h"
 
 unsigned long getStrLen(char* strArg) {
     unsigned long i = 0;
@@ -31,6 +32,16 @@ void itoa(unsigned long intArg, char* buffer) {
 }
 
 char toAscii(unsigned char code) {
+    if (code == 0xE0) { return 0; }
+    if (code == 0x1D) { isCtrlHeld = true; return 0; }
+    if (code == 0x9D) { isCtrlHeld = false; return 0; }
+    if (code & 0x80) { return 0; }
+    if (isCtrlHeld) {
+        switch (code) {
+            case 0x0D: return '+';
+            case 0x09: return '*';
+        }
+    }
     char parsed;
     switch (code) {
         case 0x02: parsed = '1'; break;

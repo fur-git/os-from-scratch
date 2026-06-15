@@ -29,5 +29,6 @@ extern volatile const char* ECHOCMD;
 extern volatile const char* WRITECMD;
 extern volatile const char* READCMD;
 extern volatile const char* ERASECMD;
+extern volatile const char* EXPRESSCMD;
 
 #endif
